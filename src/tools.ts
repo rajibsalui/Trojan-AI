@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 export async function createFile(relativePath: string, content = ''): Promise<vscode.Uri> {
   const ws = vscode.workspace.workspaceFolders![0];
-  const uri = vscode.Uri.joinPath(ws.uri, relativePath);
+  const uri = vscode.Uri.file(ws.uri.fsPath + '/' + relativePath);
   await vscode.workspace.fs.writeFile(uri, Buffer.from(content, 'utf8'));
   return uri;
 }
