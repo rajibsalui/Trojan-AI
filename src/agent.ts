@@ -1,19 +1,19 @@
 // runAgentWorkflow.ts
 
 import { ChatOpenAI } from "@langchain/openai";
+import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { createToolCallingAgent } from "langchain/agents";
 import { AgentExecutor } from "langchain/agents";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { DynamicTool } from "@langchain/core/tools";
-import { z } from "zod";
+
 
 import { createFile, readFile, updateFile, openInEditor } from "./tools";
 
 // 1. Initialize your LLM
-const llm = new ChatOpenAI({
-  openAIApiKey: process.env.AGENTIC_API_KEY,
-  modelName: "gpt-4o",
-  temperature: 0,
+const llm = new ChatGoogleGenerativeAI({
+  apiKey: process.env.AGENTIC_API_KEY,
+  model: "gemini-2.0-flash",
 });
 
 // 2. Wrap your raw functions as LangChain tools
