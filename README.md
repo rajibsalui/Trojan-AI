@@ -1,71 +1,138 @@
-# trojan-ai README
+# TrojanAI
 
-This is the README for your extension "trojan-ai". After writing up a brief description, we recommend including the following sections.
+![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+> **TrojanAI** is a VSCode extension that serves as an open-source clone of GitHub Copilot, equipped with AI agents that autonomously create, edit, and delete files in your workspace.
+
+## Table of Contents
+
+- [About](#about)  
+- [Features](#features)  
+- [Prerequisites](#prerequisites)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [Development](#development)  
+- [Architecture](#architecture)  
+- [Folder Structure](#folder-structure)  
+- [Contributing](#contributing)  
+- [License](#license)  
+- [Contact](#contact)  
+
+## About
+
+TrojanAI is designed as an open-source clone of GitHub Copilot, enabling fully autonomous code generation, refactoring, and workspace management through customizable AI agents.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- 🚀 **Autonomous Code Generation**: Create boilerplate and feature code based on natural language prompts.  
+- ✂️ **Intelligent Refactoring**: Edit and optimize existing code with minimal input.  
+- 🗑️ **Workspace Management**: Delete or archive files intelligently according to configuration.  
+- 🤖 **Customizable Agents**: Configure multiple AI agents with their own roles and permissions.  
 
-For example if there is an image subfolder under your extension project workspace:
+## Prerequisites
 
-\!\[feature X\]\(images/feature-x.png\)
+- Visual Studio Code v1.60 or higher  
+- Node.js v14 or higher  
+- npm or yarn  
+- Gemini API key (or other provider credentials)  
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Installation
 
-## Requirements
+1. **Clone the repository**:  
+   ```bash
+   git clone https://github.com/yourusername/TrojanAI.git
+   cd TrojanAI
+   ```
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+2. **Install dependencies**:  
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Extension Settings
+3. **Build the extension**:  
+   ```bash
+   npm run build
+   ```
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+4. **Launch in VSCode**:  
+   Press `F5` in VSCode to open a new Extension Development Host window.
 
-For example:
+## Usage
 
-This extension contributes the following settings:
+1. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`).
+2. Run `TrojanAI: Start Session` to activate the agents.
+3. Provide a prompt, e.g., "Add unit tests for user authentication module".
+4. Watch as TrojanAI edits, creates, or deletes files to fulfill your request.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Development
 
-## Known Issues
+To contribute or extend TrojanAI:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+1. **Create a new branch** for your feature or bugfix:
+   ```bash
+   git checkout -b feature/your-feature
+   ```
 
-## Release Notes
+2. **Make your changes**, ensuring that new code is covered by tests.
 
-Users appreciate release notes as you update your extension.
+3. **Run the test suite**:
+   ```bash
+   npm test
+   ```
 
-### 1.0.0
+4. **Commit and push your changes**:
+   ```bash
+   git add .
+   git commit -m "Add your message"
+   git push origin feature/your-feature
+   ```
 
-Initial release of ...
+5. **Open a Pull Request** on GitHub and describe your changes.
 
-### 1.0.1
+## Architecture
 
-Fixed issue #.
+TrojanAI is structured around a core agent manager that dispatches tasks to individual AI agents. Each agent:
 
-### 1.1.0
+- Receives a parsed intent from the user prompt.
+- Determines target files or directories.
+- Uses OpenAI (or compatible) API to generate or modify content.
+- Applies changes via VSCode's WorkspaceEdit API.
 
-Added features X, Y, and Z.
+**Key modules:**
 
----
+- `src/extension.ts`: Entry point registering commands.
+- `src/agentManager.ts`: Dispatches and coordinates agents.
+- `src/agents/`: Individual agent implementations.
+- `src/utils/`: Helpers for file parsing and diff computation.
 
-## Following extension guidelines
+## Folder Structure
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+```
+TrojanAI/
+├── src/
+│   ├── agents/
+│   │   ├── createAgent.ts
+│   │   ├── editAgent.ts
+│   │   └── deleteAgent.ts
+│   ├── utils/
+│   │   └── fileUtils.ts
+│   ├── agentManager.ts
+│   └── extension.ts
+├── test/
+├── package.json
+├── tsconfig.json
+├── README.md
+└── .vscode/
+    └── launch.json
+```
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+## Contributing
 
-## Working with Markdown
+Contributions are welcome! Please read our Code of Conduct and Contributing Guidelines before submitting a pull request.
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+## License
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This project is licensed under the MIT License. See LICENSE for details.
