@@ -2,8 +2,37 @@
 
 ![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
+![GSSoC 25](https://img.shields.io/badge/GSSoC-25-orange.svg)
 
-> **TrojanAI** is a VSCode extension that serves as an open-source clone of GitHub Copilot, equipped with AI agents that autonomously create, edit, and delete files in your workspace.
+<div align="center">
+
+## **🤖 TrojanAI is a VSCode extension that serves as an open-source clone of GitHub Copilot, equipped with AI agents that autonomously create, edit, and delete files in your workspace. 🚀**
+
+</div>
+
+**Project Admin:** Rajib Salui
+
+---
+
+## 🤝 **Contributing to GSSoC 2025**
+
+<div align="center">
+
+![GSSoC 2025](https://img.shields.io/badge/GirlScript%20Summer%20of%20Code-2025-orange?style=for-the-badge&logo=girlscript)
+
+**🎉 We're excited to be part of GSSoC 2025! 🎉**
+
+</div>
+
+### 🌟 **Why Contribute?**
+
+- 🏆 **Gain Experience** - Work on real-world projects
+- 🤝 **Build Network** - Connect with amazing developers
+- 📈 **Enhance Skills** - Learn from code reviews and feedback
+- 🎯 **Make Impact** - Contribute to open-source ecosystem
+- 🏅 **Earn Recognition** - Get featured in our contributors list
+
+---
 
 ## Table of Contents
 
